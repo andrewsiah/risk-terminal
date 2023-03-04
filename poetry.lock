@@ -16,6 +16,22 @@ files = [
 pycares = ">=4.0.0"
 
 [[package]]
+name = "aioetherscan"
+version = "0.8.3"
+description = "Etherscan API async Python wrapper"
+category = "main"
+optional = false
+python-versions = ">=3.7,<4.0"
+files = [
+    {file = "aioetherscan-0.8.3-py3-none-any.whl", hash = "sha256:148582afa98ed82d111e196c84d8d35d5206838c4764f68ef518a4da60b47886"},
+    {file = "aioetherscan-0.8.3.tar.gz", hash = "sha256:a8ae5f8ff62afc2a8f1d034d31f9a8825715027a41668cfdd53df398efcccb96"},
+]
+
+[package.dependencies]
+aiohttp = ">=3.4,<4.0"
+asyncio_throttle = ">=1.0.1,<2.0.0"
+
+[[package]]
 name = "aiohttp"
 version = "3.8.4"
 description = "Async http client/server framework (asyncio)"
@@ -172,6 +188,18 @@ python-versions = ">=3.6"
 files = [
     {file = "async-timeout-4.0.2.tar.gz", hash = "sha256:2163e1640ddb52b7a8c80d0a67a08587e5d245cc9c553a74a847056bc2976b15"},
     {file = "async_timeout-4.0.2-py3-none-any.whl", hash = "sha256:8ca1e4fcf50d07413d66d1a5e416e42cfdf5851c981d679a09851a6853383b3c"},
+]
+
+[[package]]
+name = "asyncio-throttle"
+version = "1.0.2"
+description = "Simple, easy-to-use throttler for asyncio"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+files = [
+    {file = "asyncio-throttle-1.0.2.tar.gz", hash = "sha256:2675282e99d9129ecc446f917e174bc205c65e36c602aa18603b4948567fcbd4"},
+    {file = "asyncio_throttle-1.0.2-py3-none-any.whl", hash = "sha256:4d4c1eb3250f735f59ce842d8d92cd2927c008bd52008797ba030b5787c41f3b"},
 ]
 
 [[package]]
@@ -2649,4 +2677,4 @@ testing = ["big-O", "flake8 (<5)", "jaraco.functools", "jaraco.itertools", "more
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.8,<3.9.7 || >3.9.7,<4.0"
-content-hash = "80f697ae293c1305b3ed9ac313232189d1f52adde4ed18839dfb6b78949d946f"
+content-hash = "6023aed1a190caceb0a57d6ac5545a040caf0b2e8c95b65a267a481220ac10b7"

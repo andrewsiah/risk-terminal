@@ -17,6 +17,7 @@ ccxt = "^2.8.84"
 web3 = "^5.31.3"
 websocket-client = "^1.5.1"
 pendulum = "^2.1.2"
+aioetherscan = "^0.8.3"
 
 
 [build-system]
