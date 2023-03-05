@@ -1,8 +1,8 @@
 {
     "protocols": [
         {
-            "name":"uniswap_v3_usdc_weth_0_5",
-            "address": "0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640"
+            "name":"pc_router",
+            "address": "0x10ED43C718714eb63d5aA57B78B54704E256024E"
         }
     ]
 }
