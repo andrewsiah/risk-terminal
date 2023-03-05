@@ -16,7 +16,7 @@ async def sub():
     account_to_value = {}
     
     is_lp = {}
-    url = "https://api.covalenthq.com/v1/bsc-mainnet/address/{}/transactions_v2/?key={}".format("0xcA143Ce32Fe78f1f7019d7d551a6402fC5350c73", "ckey_53e97fcfb006430da191bfa3400")
+    url = "https://api.covalenthq.com/v1/bsc-mainnet/address/{}/transactions_v2/?key={}".format("0x10ED43C718714eb63d5aA57B78B54704E256024E", "ckey_53e97fcfb006430da191bfa3400")
     print(url)
 
     headers = {
@@ -32,7 +32,7 @@ async def sub():
         if response[i]['from_address'] not in addresses:
             addresses.append(response[i]['from_address'])
 
-    with open('output/addresses.txt', 'w') as fout:
+    with open('output/addresses2.txt', 'w') as fout:
         json.dump(addresses, fout, ensure_ascii=False, indent=4)
     
     
@@ -55,7 +55,7 @@ async def sub():
         except:
             pass
         time.sleep(0.15)
-    with open('output/balances.txt', 'w') as fout:
+    with open('output/balances2.txt', 'w') as fout:
         json.dump(sorted(account_to_value.items(), key=lambda x: x[1], reverse=True), fout, ensure_ascii=False, indent=4)
 
     # with open('output/balances.txt', 'w') as fout:
