@@ -15,7 +15,6 @@ async def sub():
     api_key = st.secrets['covalent_apiKey']
     account_to_value = {}
     
-    is_lp = {}
     url = "https://api.covalenthq.com/v1/bsc-mainnet/address/{}/transactions_v2/?key={}".format("0xcA143Ce32Fe78f1f7019d7d551a6402fC5350c73", "ckey_53e97fcfb006430da191bfa3400")
     print(url)
 
