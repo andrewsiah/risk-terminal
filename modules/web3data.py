@@ -64,6 +64,7 @@ async def sub():
             start_block=25186796,
             end_block=99999999
         )
+        print(transfers)
         last_block = transfers[-1]['blockNumber']
 
         for i in range(1, 2):
