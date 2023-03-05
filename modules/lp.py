@@ -20,16 +20,6 @@ def load_tokens(file):
     token_by_symbol = build_dict(tokens, 'symbol')
     return token_by_symbol
 
-tokens = load_tokens('contracts/chains/ethereum/erc20_tokens_mainnet.json')
-
-usdc_addr = tokens['USDC']['address']
-weth_addr = tokens['WETH']['address']
-wbtc_addr = tokens['WBTC']['address']
-dai_addr  = tokens['DAI']['address']
-usdt_addr = tokens['USDT']['address']
-uni_addr  = tokens['UNI']['address']
-link_addr = tokens['LINK']['address']
-
 def load_wallets(file):
     with open(file) as f:
         data = json.load(f)
@@ -59,7 +49,7 @@ async def sub():
     throttler = Throttler(rate_limit=5, period=1.0)
     try:
         transfers = await c.account.token_transfers(
-            address = bnb_busd_pool,
+            address = "0xcA143Ce32Fe78f1f7019d7d551a6402fC5350c73",
             contract_address = "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
             start_block=25186796,
             end_block=99999999
