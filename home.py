@@ -8,6 +8,7 @@ from aioetherscan import Client
 from asyncio_throttle import Throttler
 import streamlit as st
 import streamlit.components.v1 as components
+import fireblocks_sdk
 
 import modules.goplus as goplus
 
@@ -19,3 +20,5 @@ import modules.goplus as goplus
 dapp_security, address_security = goplus.get_security('contracts/chains/binance-smart-chain/bep20_pools.json', 'add_bnb_usdt')
 st.json(dapp_security)
 st.json(address_security)
+
+

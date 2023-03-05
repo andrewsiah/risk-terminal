@@ -991,6 +991,23 @@ lint = ["black (>=18.6b4,<19)", "flake8 (==3.7.9)", "isort (>=4.2.15,<5)", "mypy
 test = ["hypothesis (>=4.43.0,<5.0.0)", "pytest (==5.4.1)", "pytest-xdist", "tox (==3.14.6)"]
 
 [[package]]
+name = "fireblocks-sdk"
+version = "1.18.4"
+description = "Fireblocks python SDK"
+category = "main"
+optional = false
+python-versions = "*"
+files = [
+    {file = "fireblocks_sdk-1.18.4-py3-none-any.whl", hash = "sha256:6beab940523cc0877d99b6ac505d60eeef94e284d0b423fa80c2298d19a02f8a"},
+    {file = "fireblocks_sdk-1.18.4.tar.gz", hash = "sha256:b1777f3a36017df8d396a3e8de16d0131771b8c912e3f360194364b696b5681a"},
+]
+
+[package.dependencies]
+cryptography = ">=2.7"
+PyJWT = ">=2.3.0"
+requests = ">=2.22.0"
+
+[[package]]
 name = "frozenlist"
 version = "1.3.3"
 description = "A list-like structure which implements collections.abc.MutableSequence"
@@ -1999,6 +2016,24 @@ files = [
 plugins = ["importlib-metadata"]
 
 [[package]]
+name = "pyjwt"
+version = "2.6.0"
+description = "JSON Web Token implementation in Python"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "PyJWT-2.6.0-py3-none-any.whl", hash = "sha256:d83c3d892a77bbb74d3e1a2cfa90afaadb60945205d1095d9221f04466f64c14"},
+    {file = "PyJWT-2.6.0.tar.gz", hash = "sha256:69285c7e31fc44f68a1feb309e948e0df53259d579295e6cfe2b1792329f05fd"},
+]
+
+[package.extras]
+crypto = ["cryptography (>=3.4.0)"]
+dev = ["coverage[toml] (==5.0.4)", "cryptography (>=3.4.0)", "pre-commit", "pytest (>=6.0.0,<7.0.0)", "sphinx (>=4.5.0,<5.0.0)", "sphinx-rtd-theme", "zope.interface"]
+docs = ["sphinx (>=4.5.0,<5.0.0)", "sphinx-rtd-theme", "zope.interface"]
+tests = ["coverage[toml] (==5.0.4)", "pytest (>=6.0.0,<7.0.0)"]
+
+[[package]]
 name = "pympler"
 version = "1.0.1"
 description = "A development tool to measure, monitor and analyze the memory behavior of Python objects."
@@ -2677,4 +2712,4 @@ testing = ["big-O", "flake8 (<5)", "jaraco.functools", "jaraco.itertools", "more
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.8,<3.9.7 || >3.9.7,<4.0"
-content-hash = "6023aed1a190caceb0a57d6ac5545a040caf0b2e8c95b65a267a481220ac10b7"
+content-hash = "734d229bdcc289d0b1fae4b9dc79bc1071c03e27a9d591e17d78d4a36e8a8774"
