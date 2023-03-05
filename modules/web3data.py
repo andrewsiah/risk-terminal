@@ -63,28 +63,25 @@ async def sub():
             start_block=25186796,
             end_block=99999999
         )
-        transfers.extend(await c.account.token_transfers(
-            address = pc_router,
-            contract_address = "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-            start_block=25186796 + 10_000,
-            end_block=99999999
-        ))
-        transfers.extend(await c.account.token_transfers(
-            address = pc_router,
-            contract_address = "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-            start_block=25186796 + 20_000,
-            end_block=99999999
-        ))
-        transfers.extend(await c.account.token_transfers(
-            address = pc_router,
-            contract_address = "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-            start_block=25186796 + 30_000,
-            end_block=99999999
-        ))
+        last_block = transfers[-1]['blockNumber']
+
+        for i in range(1, 300):
+            
+            transfers.extend(await c.account.token_transfers(
+                address = pc_router,
+                contract_address = "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+                start_block=last_block,
+                end_block=99999999
+            ))
+            last_block = transfers[-1]['blockNumber']
+            print(last_block + " " + str(i))
+            
+
+
         df = pd.DataFrame(transfers)
         print(df.head())
-        with open('output/transfers.txt', 'w') as fout:
-            json.dump(transfers, fout, ensure_ascii=False, indent=4)
+        # with open('output/transfers.txt', 'w') as fout:
+        #     json.dump(transfers, fout, ensure_ascii=False, indent=4)
 
         values_per_account = {}
         for transfer in transfers:
