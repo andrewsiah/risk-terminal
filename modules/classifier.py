@@ -58,20 +58,20 @@ for i in range(len(net_worth2[0])):
 
 for i in range(len(trade_sizes[0])):
     if int(trade_sizes[1][i]) > 50: #if large and frequent trader, then most likely an arb
-        classifications["labels"][trade_sizes[0][i]].append("Abritrageur")
+        classifications["labels"][trade_sizes[0][i]].append("Arbitrageur")
     elif int(trade_sizes[1][i]) > 10:
         classifications["labels"][trade_sizes[0][i]].append("Day Trader")
 for i in range(len(num_of_trades[0])):
-    if int(num_of_trades[1][i]) > 3:
+    if int(num_of_trades[1][i]) >= 3 and "Day Trader" not in classifications["labels"][num_of_trades[0][i]]:
         classifications["labels"][num_of_trades[0][i]].append("Day Trader")
-    elif int(num_of_trades[1][i]) > 1:
+    elif int(num_of_trades[1][i]) >= 1:
         classifications["labels"][num_of_trades[0][i]].append("HODLer")
 for i in range(len(num_of_trades[0])):
-    if int(num_of_trades[1][i]) > 40:
-        classifications["labels"][num_of_trades[0][i]].append("Abritrageur")
-    if int(num_of_trades[1][i]) > 10:
+    if int(num_of_trades[1][i]) > 40 and "Arbitrageur" not in classifications["labels"][num_of_trades[0][i]]:
+        classifications["labels"][num_of_trades[0][i]].append("Arbitrageur")
+    if int(num_of_trades[1][i]) > 10 and "Day Trader" not in classifications["labels"][num_of_trades[0][i]]:
         classifications["labels"][num_of_trades[0][i]].append("Day Trader")
-    elif int(num_of_trades[1][i]) > 1:
+    elif int(num_of_trades[1][i]) > 1 and "HODLer" not in classifications["labels"][num_of_trades[0][i]]:
         classifications["labels"][num_of_trades[0][i]].append("HODLer")
 
 
