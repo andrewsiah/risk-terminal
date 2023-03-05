@@ -35,7 +35,7 @@ for i in is_lp[0]:
 
 for i in is_trader[0]:
     classifications["labels"][i].append("Trader")
-    classifications["labels"][i].append("Retail")
+    #classifications["labels"][i].append("Retail")
 
 for i in range(len(net_worth[0])):
     if int(net_worth[1][i]) > 100_000:
@@ -56,8 +56,8 @@ for i in range(len(net_worth2[0])):
 for i in range(len(trade_sizes[0])):
     if int(trade_sizes[1][i]) > 50: #if large and frequent trader, then most likely an arb
         classifications["labels"][trade_sizes[0][i]].append("Abritrageur")
-    elif int(trade_sizes[1][i]) < 10 and classifications["labels"][net_worth2[0][i]].index("Whale") != -1:
-        classifications["labels"][trade_sizes[0][i]].append("Retail")
+    elif int(trade_sizes[1][i]) < 10 and classifications["labels"][net_worth2[0][i]][0] != "Whale":
+        #classifications["labels"][trade_sizes[0][i]].append("Retail")
 
 
 # print(classifications["labels"])

@@ -64,19 +64,19 @@ async def sub():
             start_block=25186796,
             end_block=99999999
         )
-        print(transfers)
-        last_block = transfers[-1]['blockNumber']
+        # # print(transfers)
+        # last_block = transfers[-1]['blockNumber']
 
-        for i in range(1, 2):
+        # for i in range(1, 2):
             
-            transfers.extend(await c.account.token_transfers(
-                address = bnb_busd_pool,
-                contract_address = "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-                start_block=last_block,
-                end_block=99999999
-            ))
-            last_block = transfers[-1]['blockNumber']
-            print(last_block + " " + str(i))
+        #     transfers.extend(await c.account.token_transfers(
+        #         address = bnb_busd_pool,
+        #         contract_address = "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+        #         start_block=last_block,
+        #         end_block=99999999
+        #     ))
+        #     last_block = transfers[-1]['blockNumber']
+        #     #print(last_block + " " + str(i))
             
 
 
@@ -89,15 +89,19 @@ async def sub():
         values_per_account = {}
         avg_trade_size = {}
         address_to_num_trades = {}
+        i=0
+        txs = []
 
         for transfer in transfers:
             tx_from = await c.proxy.tx_by_hash(transfer['hash'])
-            print("wokring")
-            if transfer['from'] not in values_per_account:
-                values_per_account[tx_from['from']] = int(transfer['value'])
-                address_to_num_trades[tx_from['from']] = 1
-                avg_trade_size[tx_from['from']] = int(transfer['value'])
-            elif transfer['to'] not in values_per_account:
+            transfer["from"] = tx_from["from"]
+            txs.append(transfer)
+
+            with open('output/hash_tx_from.txt', 'w') as fout:
+                json.dump(txs, fout, ensure_ascii=False, indent=4)
+            
+            print(f'working {i}')
+            if tx_from["from"] not in values_per_account:
                 values_per_account[tx_from['from']] = int(transfer['value'])
                 address_to_num_trades[tx_from['from']] = 1
                 avg_trade_size[tx_from['from']] = int(transfer['value'])
@@ -105,8 +109,10 @@ async def sub():
                 values_per_account[tx_from['from']] += int(transfer['value'])
                 address_to_num_trades[tx_from['from']] += 1
                 avg_trade_size[tx_from['from']] += int(transfer['value'])
-            time.sleep(0.15)
-
+            i+=1
+            time.sleep(0.14)
+        with open('output/hash_tx_from.txt', 'w') as fout:
+            json.dump(txs, fout, ensure_ascii=False, indent=4)
                
         for key, value in avg_trade_size.items():
             avg_trade_size[key] = (value / 10e18) / address_to_num_trades[key]
