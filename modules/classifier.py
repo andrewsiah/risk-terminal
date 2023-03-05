@@ -16,39 +16,38 @@ is_lp = pd.read_json("output/addresses.txt")
 is_trader = pd.read_json("output/addresses2.txt")
 net_worth2 = pd.read_json("output/balances2.txt")
 
-classifications = {}
+classifications = { "labels": {} }
 for i in trade_sizes[0]:
-    classifications[i] = []
+    classifications["labels"][i] = []
 for i in num_of_trades[0]:
-    classifications[i] = []
+    classifications["labels"][i] = []
 for i in avg_trade_size[0]:
-    classifications[i] = []
+    classifications["labels"][i] = []
 for i in net_worth[0]:
-    classifications[i] = []
+    classifications["labels"][i] = []
 for i in is_lp[0]:
-    classifications[i] = []
+    classifications["labels"][i] = []
 for i in is_trader[0]:
-    classifications[i] = []
+    classifications["labels"][i] = []
 for i in net_worth2[0]:
-    classifications[i] = []
+    classifications["labels"][i] = []
 
 
 for i in is_lp[0]:
-    classifications[i].append("LP")
+    classifications["labels"][i].append("LP")
 
 for i in is_trader[0]:
-    classifications[i].append("Trader")
+    classifications["labels"][i].append("Trader")
 
-for i in net_worth2.items():
-    print(i)
+for i in range(len(net_worth[0])):
 
-    # if int(i[1]) > 1_000_000:
-    #     classifications[i[0]].append("Whale")
-    # elif int(i[1]) > 100_000:
-    #     classifications[i[0]].append("Small Whale")
+    if int(net_worth[1][i]) > 1_000_000:
+        classifications["labels"][net_worth[0][i]].append("Whale")
+    elif int(net_worth[1][i]) > 100_000:
+        classifications["labels"][net_worth[0][i]].append("Small Whale")
 
 
-# print(classifications)
+# print(classifications["labels"])
 
 with open('output/classifications.txt', 'w') as fout:
     json.dump(classifications, fout, ensure_ascii=False, indent=4)
