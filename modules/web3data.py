@@ -6,6 +6,7 @@ import json
 
 from aioetherscan import Client
 from asyncio_throttle import Throttler
+import streamlit as st
 
 
 def build_dict(seq, key):
@@ -63,9 +64,11 @@ async def sub():
             end_block=99999999
         )
         df = pd.DataFrame(transfers)
-        print(df.info())
+        
+        print(df)
         # with open('output/transfers.txt', 'w') as fout:
         #     json.dump(transfers, fout, ensure_ascii=False, indent=4)
+
 
 
         # print(await c.stats.eth_price())

@@ -1,0 +1,16 @@
+{
+    "pools": [
+      {
+        "index":1,
+        "name": "add_bnb_cake",
+        "url": "https://pancakeswap.finance/add/BNB/0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82?chain=bsc",
+        "address": "0x0eD7e52944161450477ee417DE9Cd3a859b14fD0"
+      },
+      {
+        "index":2,
+        "name": "add_bnb_usdt",
+        "url": "https://pancakeswap.finance/add/BNB/0x55d398326f99059fF775485246999027B3197955?chain=bsc",
+        "address": "0x16b9a82891338f9bA80E2D6970FddA79D1eb0daE"
+      }
+    ]
+}
