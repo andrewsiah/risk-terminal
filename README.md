@@ -21,6 +21,6 @@ We provide an auto withdrawal execution feature when certain conditions are met.
 
 ## Demo
 
-For our EthDenver2023 hackathon submission, we will demo Algo Risk Terminal with PancakeSwap USDT-BNB, a stable asset.
+For our EthDenver2023 hackathon submission, we will demo Algo Risk Terminal with PancakeSwap USDT-BNB, a stable pair.
 
 Thank you for considering our submission. We are confident in the potential of Algo Risk Terminal and look forward to showcasing it further.
