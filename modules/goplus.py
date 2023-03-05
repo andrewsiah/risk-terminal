@@ -12,7 +12,6 @@ def get_security(pool_path, pool):
             data = json.load(f)
         pools_by_name = build_dict(data['pools'], 'name')
         return pools_by_name
-
     pools = load_pools(pool_path)
 
     def get_url_addr(pools,name):
